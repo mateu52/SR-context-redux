@@ -1,5 +1,6 @@
+
 import './App.css'
-import { CompanyContext } from './components/Company/CompanyContext'
+import { CompanyContextProvider } from './components/Company/CompanyContext'
 import { CompanyInfo } from './components/Company/CompanyInfo'
 
 // 3 klientow = logo, nazwa, kolory
@@ -7,12 +8,12 @@ import { CompanyInfo } from './components/Company/CompanyInfo'
 // kontekst m info o opcji
 // komponent wyboru
 function App() {
-
+  
   return (
     <div>
-      <CompanyContext.Provider value={{company: 2}}>
+      <CompanyContextProvider>
         <CompanyInfo />
-      </CompanyContext.Provider>
+      </CompanyContextProvider>
     </div>
   )
 }
