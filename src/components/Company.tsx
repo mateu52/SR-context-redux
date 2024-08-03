@@ -25,20 +25,26 @@ const style3 = {
     backgroundSize: "contain",
     backgroundImage:"url(https://animationvisarts.com/wp-content/uploads/2021/01/IBM-Icon.jpg)",  
 }
-
+document.getElementById("root").style.height = '100vh'
+document.getElementById("root").style.width = '100vh'
 export const Company = () => {
-    const { company } = useCompanyContext()
+    const { color, company } = useCompanyContext()
+    console.log(document.body)
     return (
         <div>
-            <Companies />
-                <p>Firma nr {company}</p>
-                <p style={{ color: company}}>1</p>
-            {/* {company===1 ? 
-                <p style={{backgroundColor:"red"}}>1</p>: null}
-            {company===2 ? 
-                <p style={style2}>2</p>: null}
-            {company===3 ? 
-                <p style={style3}>3</p>: null} */}
+                <p>Firma {company}</p>
+            {color==='#ee5253' ? 
+                document.getElementById("root").style.backgroundColor='#ee5253' && 
+                <p style={style1}></p>
+                : null}
+            {color==='#1dd1a1' ? 
+                document.getElementById("root").style.backgroundColor='#1dd1a1'  &&
+                <p style={style2}></p>  
+                : null}
+            {color==='#54a0ff' ? 
+                document.getElementById("root").style.backgroundColor='#54a0ff' && 
+                <p style={style3}></p>
+                : null}
         </div>
         
     )

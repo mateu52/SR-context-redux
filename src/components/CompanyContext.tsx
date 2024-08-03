@@ -1,6 +1,7 @@
 import { createContext, useContext, useState } from "react";
 
 type CompanyContextType = {
+    color: string;
     company: string;
     toggleOne: () => void;
     toggleTwo: () => void;
@@ -27,19 +28,19 @@ const style3 = {
     backgroundColor: "green"
 }
 const useCompany = () => {
-    const [company, setCompany] = useState('#ee5253');
+    const [color, setColor] = useState('#ee5253');
+    const [company, setCompany] = useState('Coca-cola')
+    const toggleOne = () => {setColor('#ee5253'); setCompany('Coca-cola');}
+    const toggleTwo = () => {setColor('#1dd1a1'); setCompany('Starbucks');}
+    const toggleThree = () => {setColor('#54a0ff'); setCompany('Ibm');}
 
-    const toggleOne = () => setCompany('#ee5253');
-    const toggleTwo = () => setCompany('#1dd1a1');
-    const toggleThree = () => setCompany('#54a0ff');
-
-    return { company, toggleOne, toggleTwo, toggleThree }
+    return { color, company, toggleOne, toggleTwo, toggleThree }
 }
 
 export const CompanyContextProvider = ({ children}: {children: React.ReactNode}) => {
-    const { company, toggleOne, toggleTwo, toggleThree } = useCompany();
+    const { color, company, toggleOne, toggleTwo, toggleThree } = useCompany();
     return (
-        <CompanyContext.Provider value={{ company, toggleOne, toggleTwo, toggleThree}} >
+        <CompanyContext.Provider value={{ color, company, toggleOne, toggleTwo, toggleThree}} >
             {children}
         </CompanyContext.Provider>
     )

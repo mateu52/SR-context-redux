@@ -13,6 +13,7 @@ function App() {
   return (
     <div>
       <CompanyContextProvider>
+        <Companies />
         <Company />
       </CompanyContextProvider>
     </div>
